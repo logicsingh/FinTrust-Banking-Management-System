@@ -1,0 +1,1 @@
+fastapi>=0.110,<1.0\nuvicorn[standard]>=0.27,<1.0\noracledb>=2.0,<4.0\npython-dotenv>=1.0,<2.0\nemail-validator>=2.0,<3.0\n

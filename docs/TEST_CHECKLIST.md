@@ -1,0 +1,15 @@
+# Test checklist
+- [ ] Tables, view, package specification/body and trigger compile.
+- [ ] Check `USER_ERRORS` for compilation errors.
+- [ ] Valid deposit updates balance and inserts one transaction.
+- [ ] Zero/negative deposit is rejected.
+- [ ] Valid withdrawal updates balance and inserts one transaction.
+- [ ] Overdraw is rejected.
+- [ ] Valid transfer updates both balances and inserts transfer-in/out rows.
+- [ ] Same-account transfer and insufficient-funds transfer are rejected.
+- [ ] Failed transfer leaves both balances unchanged after rollback.
+- [ ] Each balance update creates an audit record.
+- [ ] Low-balance cursor returns expected rows.
+- [ ] Seed script does not duplicate rows when rerun.
+- [ ] Live dashboard metrics match Oracle queries.
+- [ ] UI clearly indicates demo mode when API is unavailable.
