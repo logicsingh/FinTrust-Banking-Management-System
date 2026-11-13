@@ -201,7 +201,7 @@ def withdraw(money: Money):
 class Transfer(BaseModel):
     from_account_id: int = Field(gt=0)
     to_account_id: int = Field(gt=0)
-    amount: float = Field(gt=0, allow_inf_nan=False)
+    amount: Decimal = Field(gt=0, max_digits=14, decimal_places=2)
     description: str | None = Field(default=None, max_length=250)
 
 
