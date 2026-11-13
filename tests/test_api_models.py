@@ -38,3 +38,19 @@ def test_customer_validates_email_and_name_length():
         Customer(full_name="A", email="test@example.com")
     with pytest.raises(ValidationError):
         Customer(full_name="Test Customer", email="not-an-email")
+
+
+
+def test_money_uses_two_decimal_places():
+    assert str(Money(account_id=1, amount="10.25").amount) == "10.25"
+    with pytest.raises(ValidationError):
+        Money(account_id=1, amount="10.257")
+    with pytest.raises(ValidationError):
+        Money(account_id=1, amount="1000000000000.00")
+
+
+def test_transfer_uses_decimal_amounts():
+    transfer = Transfer(from_account_id=1, to_account_id=2, amount="125.75")
+    assert str(transfer.amount) == "125.75"
+    with pytest.raises(ValidationError):
+        Transfer(from_account_id=1, to_account_id=2, amount="125.756")
