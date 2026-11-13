@@ -1,4 +1,6 @@
 import os
+from decimal import Decimal
+
 import oracledb
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
@@ -176,7 +178,7 @@ def audit():
 
 class Money(BaseModel):
     account_id: int = Field(gt=0)
-    amount: float = Field(gt=0, allow_inf_nan=False)
+    amount: Decimal = Field(gt=0, max_digits=14, decimal_places=2)
     description: str | None = Field(default=None, max_length=250)
 
 
